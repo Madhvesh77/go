@@ -9,14 +9,14 @@ func main() {
 
     go func() {
         for {
-            c1 <- "from 1"
+            c1 <- "from 1 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
             time.Sleep(time.Second * 2)
         }
     }()
 
     go func() {
         for {
-            c2 <- "from 2"
+            c2 <- "from 2 *********************************"
             time.Sleep(time.Second * 3)
         }
     }()
@@ -28,6 +28,8 @@ func main() {
                 fmt.Println(msg1)
             case msg2 := <- c2:
                 fmt.Println(msg2)
+			case <- time.After(time.Second):
+				fmt.Println("timeout")
             }
         }
     }()
