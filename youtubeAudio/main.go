@@ -53,7 +53,7 @@ func main() {
 }
 
 func downloadAudio(url string) error {
-	cmd := exec.Command("yt-dlp", "-x", "--audio-format", "m4a", "--progress", url)
+	cmd := exec.Command("yt-dlp", "-x", "--audio-format", "mp3", "--progress", url)
 
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

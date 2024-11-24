@@ -22,7 +22,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for index, file := range files {
-		if filepath.Ext(file.Name()) == ".webm" {
+		if filepath.Ext(file.Name()) == ".mp3" {
 			inputPath := filepath.Join(dir, file.Name())
 			fmt.Printf("Processing file: %s\n", file.Name())
 
@@ -34,11 +34,11 @@ func main() {
 			end, _ := reader.ReadString('\n')
 			end = strings.TrimSpace(end)
 
-			ind := fmt.Sprintf("%02d", index+1)
+			ind := fmt.Sprintf("%02d", index)
 
 			// outputFile := strings.TrimSuffix("BG - 01 - " + ind, ".webm") + "_clip.webm"
 			// outputPath := filepath.Join(dir+"/clipped", outputFile)
-			outputFile := fmt.Sprintf("BG - 01 - %s_clip.webm", ind)
+			outputFile := fmt.Sprintf("BG - 02 - %s_clip.mp3", ind)
 			outputDir := filepath.Join(dir, "clipped")
 			errr := os.MkdirAll(outputDir, os.ModePerm)
 			if errr != nil {
